@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="row mt-5">
+  <div class="col-12">
+    <h2 class="mb-4 text-center">Author List</h2>
+  </div>
+</div>
+<div class="row mt-2 mb-5" id="authorListingView">
+  <div class="col-12 justify-content-center d-flex">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Author</th>
+          <th scope="col">Creation Date</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          id="{{ item.id }}"
+          *ngFor="let item of authorListing; let i = index"
+        >
+          <th scope="row">{{ i }}</th>
+          <td>{{ item.name }}</td>
+          <td>{{ item.creationDate }}</td>
+          <td>
+            <a
+              class="btn btn-primary edit-author"
+              href="#"
+              (click)="editAuthor($event)"
+              >Edit</a
+            >
+            <a
+              class="btn btn-danger delete-author"
+              (click)="deleteAuthor($event)"
+              >Delete</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

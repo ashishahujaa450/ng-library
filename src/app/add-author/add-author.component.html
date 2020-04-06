@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="row my-5" id="addAuthorView">
+  <div class="col-12 justify-content-center d-flex">
+    <div class="inner-wrapper card card-body">
+      <!-- Login Form -->
+      <form class="pt-0" id="addAuthorForm">
+        <h2 class="mb-4 text-center">Add Author</h2>
+        <div class="form-group">
+          <label for="authorName">Author Name</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Enter Author Name"
+            id="authorName"
+            name="authorName"
+            [(ngModel)]="authorName"
+          />
+        </div>
+
+        <a
+          type="submit"
+          class="btn btn-primary add-author"
+          href="#"
+          (click)="addAuthor($event)"
+        >
+          Add
+        </a>
+      </form>
+    </div>
+  </div>
+</div>

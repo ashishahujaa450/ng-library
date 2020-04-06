@@ -1,0 +1,68 @@
+<div class="row mt-5">
+  <div class="col-6 mx-auto">
+    <div class="inner-wrapper card card-body" id="loginView">
+      <form class="pt-0 loginForm">
+        <h2 class="mb-4 text-center">Student Registeration</h2>
+
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Fullname"
+            id="studentName"
+            required=""
+            name="studentName"
+            [(ngModel)]="stdName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Username"
+            id="stdUsername"
+            required=""
+            name="stdUserName"
+            [(ngModel)]="stdUserName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter password"
+            id="stdPwd"
+            required=""
+            name="stdPwd"
+            [(ngModel)]="stdPwd"
+          />
+        </div>
+
+        <a
+          type="submit"
+          href="#"
+          class="btn btn-primary loginBtn"
+          (click)="registerStd($event)"
+          >Register
+        </a>
+      </form>
+
+      <br />
+      <hr />
+      <br />
+      <div class="d-flex justify-content-between align-items-center">
+        <button class="btn btn-danger" [routerLink]="['/login', 'admin']">
+          Admin Login
+        </button>
+        <button class="btn btn-warning" [routerLink]="['/login', 'student']">
+          Student Login
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

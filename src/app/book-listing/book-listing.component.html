@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<div id="bookListingView">
+  <div class="row mt-5">
+    <div class="col-9">
+      <h2 class="mb-4 text-left">Book List</h2>
+    </div>
+    <div class="col-3">
+      <input
+        type="text"
+        placeholder="Search book by title"
+        class="form-control"
+        id="searchBook"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12 justify-content-center d-flex">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Price</th>
+            <th scope="col">Copies</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="{{ book.id }}" *ngFor="let book of bookList; let i = index">
+            <th scope="row">{{ i }}</th>
+            <td class="bookName">{{ book.name }}</td>
+            <td>{{ book.author.name }}</td>
+            <td>{{ book.Isbn }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.copies }}</td>
+            <td>
+              <a
+                class="btn btn-primary edit-book"
+                href="#"
+                (click)="editBook($event)"
+                >Edit</a
+              >
+              <a class="btn btn-danger delete-book" (click)="deleteBook($event)"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

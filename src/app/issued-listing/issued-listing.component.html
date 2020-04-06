@@ -1,0 +1,45 @@
+<app-header> </app-header>
+
+<div class="row mt-5">
+  <div class="col-12">
+    <h2 class="mb-4 text-center">Issued Book List</h2>
+  </div>
+</div>
+
+<div class="row mt-2 mb-5" id="issuedBookListingViewWrapper">
+  <div class="col-12 justify-content-center d-flex">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Student Name</th>
+          <th scope="col">Book Name</th>
+          <th scope="col">ISBN</th>
+          <th scope="col">Issued Date</th>
+          <th scope="col">Return Date</th>
+
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          id="{{ book.id }}"
+          *ngFor="let book of issueBookListing; let i = index"
+        >
+          <th scope="row">{{ i }}</th>
+          <td>{{ book.rollNo }}</td>
+          <td>{{ book.book.name }}</td>
+          <td>{{ book.book.Isbn }}</td>
+          <td>{{ book.issueBookDate }}</td>
+          <td>Blank for now</td>
+
+          <td>
+            <a class="btn btn-primary issue-book-details" href="#"
+              >Show Details</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

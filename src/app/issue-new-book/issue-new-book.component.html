@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<div class="row my-5" id="issueNewBookView">
+  <div class="col-12 justify-content-center d-flex">
+    <div class="inner-wrapper card card-body">
+      <!-- Login Form -->
+      <form class="pt-0">
+        <h2 class="mb-4 text-center">Issue New Book</h2>
+        <div class="form-group">
+          <label for="issueStudentId">Student Roll Number</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Student Roll number"
+            id="issueStudentId"
+            #studentRollNumber
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="IssueIsbnNumber">ISBN Number</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Enter ISBN Number"
+            id="IssueIsbnNumber"
+            name="issueBookByIsbn"
+            [(ngModel)]="bookIsbn"
+            (input)="findBookByIsbn($event)"
+          />
+          <div
+            class="alert alert-danger"
+            id="issueIsbnAlert"
+            [ngClass]="{ 'd-none': bookFinded }"
+          >
+            This isbn doesn't match with any book isbn.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="IssedBookSelect">Issuing book</label>
+          <select class="form-control" id="IssedBookSelect" disabled="">
+            <option id="IssedBookSelectOpt" *ngIf="selectedBook">{{
+              selectedBook.name
+            }}</option>
+          </select>
+        </div>
+
+        <a
+          type="submit"
+          class="btn btn-primary issue-book"
+          (click)="onIssueBook($event)"
+        >
+          Issue Book
+        </a>
+      </form>
+    </div>
+  </div>
+</div>

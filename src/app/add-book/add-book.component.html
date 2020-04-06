@@ -1,0 +1,95 @@
+<app-header></app-header>
+
+<div class="row my-5" id="addBookView">
+  <div class="col-12 justify-content-center d-flex">
+    <div class="inner-wrapper card card-body">
+      <!-- Login Form -->
+      <form class="pt-0 add-book-form">
+        <h2 class="mb-4 text-center">Add Book</h2>
+        <div class="form-group">
+          <label for="bookName">Book Name</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Enter Book Name"
+            id="bookName"
+            name="addBookName"
+            [(ngModel)]="BookAddedDetails.bookName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="bookAuthor">Book Author</label>
+          <select
+            class="form-control"
+            id="bookAuthorSelect"
+            #bookAuthorSelectBox
+          >
+            <option
+              value="author name"
+              *ngFor="let author of BookAddedDetails.author"
+              >{{ author.name }}</option
+            >
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="IsbnNumber">ISBN Number</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Enter ISBN Number"
+            id="IsbnNumber"
+            name="addBookIsbn"
+            [(ngModel)]="BookAddedDetails.Isbn"
+            (input)="validateIsbn($event)"
+          />
+          <div
+            class="alert alert-danger"
+            id="isbnAlert"
+            [ngClass]="{ 'd-none': isValidate }"
+          >
+            This isbn already used please use a different one.
+          </div>
+          <small id="emailHelp" class="form-text text-muted"
+            >An ISBN is an International Standard Book Number.ISBN Must be
+            unique</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="bookPrice">Book Price</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Enter Book Price"
+            id="bookPrice"
+            name="addBookPrice"
+            [(ngModel)]="BookAddedDetails.bookPrice"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="bookQuantity">Book Quantity</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Enter Book Quantity"
+            id="bookQuantity"
+            name="addBookQuantity"
+            [(ngModel)]="BookAddedDetails.bookQuantity"
+          />
+        </div>
+
+        <a
+          type="submit"
+          class="btn btn-primary add-book book-submit"
+          href="#"
+          (click)="addBook($event)"
+        >
+          Add
+        </a>
+      </form>
+    </div>
+  </div>
+</div>
